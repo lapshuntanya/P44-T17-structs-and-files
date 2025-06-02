@@ -37,4 +37,13 @@ struct Card
 			<< setw(7) << cash << "|\n";
 	}
 
+	void saveToTextFile(FILE* file) {
+		fprintf(file, "\n%s\n%lu %lf", name, number, cash);
+	}
+	void loadFromTextFile(FILE* file) {
+		fscanf_s(file, "\n");
+		fgets(name, 100, file);
+		fscanf_s(file, "%lu %lf", &number, &cash);
+	}
+
 };
