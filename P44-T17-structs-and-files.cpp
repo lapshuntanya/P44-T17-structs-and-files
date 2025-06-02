@@ -33,7 +33,7 @@ int main()
     Card* arr = nullptr;    //масив клієнтів
     int NClients = 0;       //розмір масиву = кількість
 
-#if CREATE_OR_LOAD == 1
+#if CREATE_OR_LOAD == 0
     NClients = 3;
     arr = new Card[3]{
         {"Pupkin Semen", 123456789, 150.99},
@@ -42,6 +42,17 @@ int main()
     };
 #else
     //load
+    fopen_s(&file, "bank.txt", "r");
+    if (file == nullptr) cout << "ERROR: not loaded!\n";
+    else {
+        fscanf_s(file, "%d", &NClients);
+        arr = new Card[NClients];
+        for (int i = 0; i < NClients; i++)
+        {
+            arr[i].loadFromTextFile(file);
+        }
+        fclose(file);
+    }
 #endif
 
 //===============================================================
