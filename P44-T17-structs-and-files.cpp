@@ -1,5 +1,5 @@
 #include "Card.h"
-#define CREATE_OR_LOAD 1 //1-create, 0-load
+#define CREATE_OR_LOAD 0 //1-create, 0-load
 
 int main()
 {
@@ -10,7 +10,11 @@ int main()
 #if CREATE_OR_LOAD == 1
     pupkin.fillCard(); //create card
 #else
-    //load card
+    fopen_s(&file, "bank.txt", "r");
+    if (file != nullptr) {
+        pupkin.loadFromTextFile(file);
+        fclose(file);
+    }
 #endif
 
     cout << endl;

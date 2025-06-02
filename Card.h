@@ -42,7 +42,8 @@ struct Card
 	}
 	void loadFromTextFile(FILE* file) {
 		fscanf_s(file, "\n");
-		fgets(name, 100, file);
+		fgets(name, 100, file); // "Pupkin Semen\n";
+		name[strlen(name) - 1] = '\0'; // "Pupkin Semen\0";
 		fscanf_s(file, "%lu %lf", &number, &cash);
 	}
 
