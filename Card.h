@@ -26,6 +26,11 @@ struct Card
 		cout << "Cash:   " << cash << " UAH.\n";
 		cout << "===================================\n";
 	}
+	void printTitle() {
+		cout << "| " << setw(12) << "Card" << "| "
+			<< setw(15) << "Client" << "|"
+			<< setw(7) << "Cash" << "|\n";
+	}
 	void printLine() {
 		cout << "| " << setw(12) << number << "| "
 			<< setw(15) << name << "|"
