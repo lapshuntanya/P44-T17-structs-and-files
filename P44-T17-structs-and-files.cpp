@@ -1,11 +1,11 @@
 #include "Card.h"
-#define CREATE_OR_LOAD 0 //1-create, 0-load
+#define CREATE_OR_LOAD 1 //1-create, 0-load
 
 int main()
 {
     srand(time(0));
     FILE* file = nullptr;
-
+/*
     Card pupkin;
 #if CREATE_OR_LOAD == 1
     pupkin.fillCard(); //create card
@@ -28,5 +28,57 @@ int main()
         pupkin.saveToTextFile(file);
         fclose(file);
     }
+    */
+
+    Card* arr = nullptr;    //масив клієнтів
+    int NClients = 0;       //розмір масиву = кількість
+
+#if CREATE_OR_LOAD == 1
+    NClients = 3;
+    arr = new Card[3]{
+        {"Pupkin Semen", 123456789, 150.99},
+        {"Shevchenko Taras", 1212121212, 999.99},
+        {"Ukrainka Lesya", 543215432, 650.5}
+    };
+#else
+    //load
+#endif
+
+//===============================================================
+    int menu = 0;
+    char temp[100] = "";
+    Card temp_card;
+    do
+    {
+        cout << "+++++++++++++++++++++++++++\n";
+        cout << "|\t MENU:\n";
+        cout << "+++++++++++++++++++++++++++\n";
+        cout << "| 0 - Exit and Save\n";
+        cout << "| 1 - Show list of cliens\n";
+        cout << "+++++++++++++++++++++++++++\n";
+        cout << ">>> ";
+        cin >> menu;
+
+        switch (menu)
+        {
+        default: cout << "Error: try again!\n";    break;
+        case 0: cout << "Bye!\n"; break;
+        case 1:
+            if (NClients == 0) {
+                cout << "List is empty!\n";
+                break;
+            }
+            temp_card.printTitle();
+            for (int i = 0; i < NClients; i++)
+            {
+                arr[i].printLine();
+            }
+            break;
+        }
+
+    } while (menu != 0);
+
+//===============================================================
+
 }
 
