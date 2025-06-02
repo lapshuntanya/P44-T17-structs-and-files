@@ -1,7 +1,14 @@
-#include <iostream>
+#include "Card.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    srand(time(0));
+
+    Card pupkin;
+    pupkin.fillCard();
+
+    cout << endl;
+    pupkin.printTitle();
+    pupkin.printLine();
 }
 
