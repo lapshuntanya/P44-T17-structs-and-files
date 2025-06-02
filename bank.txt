@@ -1,4 +1,4 @@
-4
+5
 Pupkin Semen
 123456789 1150.990000
 Shevchenko Taras
@@ -6,4 +6,6 @@ Shevchenko Taras
 Ukrainka Lesya
 543215432 1650.500000
 Khvyliovuy Mykola
-98769876 1123.00
+98769876 1123.000000
+Khmelnytskuy Bogdan
+50517975 500.000000

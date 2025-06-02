@@ -60,6 +60,9 @@ int main()
     int menu = 0;
     char temp[100] = "";
     Card temp_card;
+    unsigned long temp_number = 0;
+    double temp_cash = 0;
+    int id = -1;
     do
     {
         cout << "+++++++++++++++++++++++++++\n";
@@ -67,6 +70,8 @@ int main()
         cout << "+++++++++++++++++++++++++++\n";
         cout << "| 0 - Exit and Save\n";
         cout << "| 1 - Show list of cliens\n";
+        cout << "| 2 - Open a new card\n";
+        cout << "| 3 - Topup card\n";
         cout << "+++++++++++++++++++++++++++\n";
         cout << ">>> ";
         cin >> menu;
@@ -84,6 +89,29 @@ int main()
             for (int i = 0; i < NClients; i++)
             {
                 arr[i].printLine();
+            }
+            break;
+        case 2:
+            cin.ignore();
+            temp_card.fillCard();
+            addItemBack(arr, NClients, temp_card);
+            break;
+        case 3:
+            cout << "Input number of card: ";
+            cin >> temp_number;
+            cout << "Input cash: ";
+            cin >> temp_cash;
+            id = -1;
+            for (int i = 0; i < NClients; i++) {
+                if (arr[i].number == temp_number) {
+                    id = i;
+                    break;
+                }
+            }
+            if (id == -1) cout << "Not found\n";
+            else {
+                arr[id].cash += temp_cash;
+                arr[id].printCard();
             }
             break;
         }
