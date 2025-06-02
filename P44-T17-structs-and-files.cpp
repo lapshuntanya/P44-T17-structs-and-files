@@ -1,4 +1,5 @@
 #include "Card.h"
+#include "ArrayTemplate.h"
 #define CREATE_OR_LOAD 1 //1-create, 0-load
 
 int main()
